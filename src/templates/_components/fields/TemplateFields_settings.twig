@@ -1,0 +1,33 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Template Fields plugin for Craft CMS
+ *
+ * TemplateFields Field Settings
+ *
+ * @author    CDF Web Solutions
+ * @copyright Copyright (c) 2020 CDF Web Solutions
+ * @link      https://www.cdfwebsolutions.com
+ * @package   TemplateFields
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Template to include',
+    instructions: 'Enter the path to a template in your templates folder. This setting overrides any content entered in the "Twig Code to Render" field below.',
+    id: 'templateIncludePath',
+    name: 'templateIncludePath',
+    value: field['templateIncludePath']})
+}}
+
+{{ forms.textareaField({
+    label: 'Twig Code to Render',
+    instructions: 'Enter Twig code to be rendered in the field. Available variables: <code>{{ element }}</code> (e.g., entry or user object), <code>{{ type }}</code> (element type), and <code>{{ field }}</code> (field object).',
+    id: 'twigToRender',
+    name: 'twigToRender',
+    rows: '5',
+    value: field['twigToRender']})
+}}
